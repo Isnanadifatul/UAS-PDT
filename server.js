@@ -14,7 +14,7 @@ const init = async () => {
 
     const server = Hapi.Server({
         host: 'localhost',
-        port: 5002,
+        port: 5001,
         routes: {
             cors: {
                 origin: ['*'],
@@ -54,7 +54,11 @@ server.views({
       html: require('handlebars'),
     },
     relativeTo: __dirname,
-    path: 'views', // Pastikan ini sesuai dengan struktur folder proyek Anda
+    path: 'public', // Pastikan ini sesuai dengan struktur folder proyek Anda
+    runtimeOptions: {
+        allowProtoPropertiesByDefault: true, // Tambahkan ini
+        allowProtoMethodsByDefault: true     // Tambahkan ini
+    }
   });
 
 

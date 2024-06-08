@@ -1,19 +1,15 @@
 //const bcrypt = require('bcrypt');
 const Joi = require('@hapi/joi');
-const {DataTypes} = require('sequelize');
+const {DataTypes, Op} = require('sequelize');
 const {insertUser, Pasien} = require('../models/pasien');
-
-
-
-
 
 async function registerHandler(request, h) {
   try {
-    const {nama_pasien, jenis_kelamin, alamat, usia, no_telp} = request.payload;
+    const {nama_pasien, usia, jenis_kelamin, alamat,  no_telp} = request.payload;
 
   
 // Insert user baru
-await insertUser(nama_pasien, jenis_kelamin, alamat, usia, no_telp);
+await insertUser(nama_pasien, usia, jenis_kelamin, alamat, no_telp);
 
 return h.response('Registration successful!').code(201);
 } catch (error) {
@@ -27,6 +23,7 @@ return h.response('Internal Server Error').code(500);
 async function readAllPasien() {
   try {
       const pasiens = await Pasien.findAll();
+      console.log('Pasiens:', pasiens);
       return pasiens; // Mengembalikan nilai
   } catch (error) {
       console.error('Error membaca data pasien:', error);
@@ -102,7 +99,25 @@ updatePasienById(idPasienToUpdate, newData)
       console.error('Gagal melakukan update data pasien:', error);
   });
 
+  //handle pencarian
+  const searchPasien = async (searchQuery) => {
+    try {
+        const pasiens = await Pasien.findAll({
+            where: {
+                nama_pasien: {
+                    [Op.like]: `%${searchQuery}%`
+                }
+            }
+        });
+        console.log('Hasil Pencarian:', pasiens);
+        return JSON.parse(JSON.stringify(pasiens));
+    } catch (error) {
+        console.error('Error mencari data pasien:', error);
+        throw error;
+    }
+};
 
 
-module.exports = {registerHandler, readAllPasien, updatePasienById};
+
+module.exports = {registerHandler, readAllPasien, updatePasienById, searchPasien};
 

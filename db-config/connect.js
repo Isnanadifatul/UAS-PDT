@@ -2,13 +2,13 @@ const Sequelize = require('sequelize');
 
 // database connection
 const connection = new Sequelize(
-  '',
+  'rm_pmk',
   'root',
-  '',
+  'Isnaisna02#*',
   {
     host: 'localhost',
-    port: ,
-    dialect: '',
+    port: 3306,
+    dialect: 'mysql',
   },
 );
 

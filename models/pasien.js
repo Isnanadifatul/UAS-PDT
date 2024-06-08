@@ -13,20 +13,22 @@ const Pasien = dbConnection.define('pasien', {
       nama_pasien: {
           type: DataTypes.STRING
       },
+      usia : {
+        type:  DataTypes.INTEGER
+     },
       jenis_kelamin : {
           type: DataTypes.STRING
       },
       alamat : {
           type: DataTypes.STRING
       },
-      usia : {
-          type:  DataTypes.INTEGER
-      },
       no_telp : {
         type:  DataTypes.STRING
       },
       registration_date: {
-          type:  DataTypes.DATE
+        type: DataTypes.DATE,
+        allowNull: false, // Pastikan ini tidak null
+        defaultValue: DataTypes.NOW // Default ke waktu sekarang
       }
 },
 {
@@ -36,7 +38,7 @@ const Pasien = dbConnection.define('pasien', {
 
 
   // Insert pasien baru
-  const insertUser = async (nama_pasien, jenis_kelamin, alamat, usia, no_telp) => {
+  const insertUser = async (nama_pasien,  usia, jenis_kelamin, alamat, no_telp) => {
     try {
       const newUser = await Pasien.create({ nama_pasien, jenis_kelamin, alamat, usia, no_telp });
       console.log('User inserted:', newUser.toJSON());

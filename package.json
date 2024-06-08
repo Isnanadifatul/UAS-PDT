@@ -1,8 +1,8 @@
 {
-  "name": "aplikasi-rekam-medis",
+  "name": "rekam-medis",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -11,14 +11,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mysql2": "^3.9.7",
-    "@hapi/hapi": "^21.3.2",
+    "@hapi/cookie": "^12.0.1",
+    "@hapi/hapi": "^21.3.9",
     "@hapi/inert": "^7.1.0",
     "@hapi/joi": "^17.1.1",
     "@hapi/vision": "^7.0.3",
     "handlebars": "^4.7.8",
     "hapi-geo-locate": "^4.1.1",
-    "nanoid": "^3.3.7",
+    "mysql2": "^3.6.5",
     "sequelize": "^6.35.1"
   }
 }
