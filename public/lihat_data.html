@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekam Medis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="sidebar">
+        <h2>Rekam Medis</h2>
+         <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/register">Masukkan Data Pasien</a></li>
+            <li><a href="/ReadPasien">Lihat Data Pasien</a></li>
+            
+        </ul>
+   </div>
+    <h1>Data Pasien</h1>
+
+     <!-- Form Pencarian -->
+     <form action="/cari-pasien" method="GET">
+        <input type="text" name="q" placeholder="Cari nama pasien...">
+        <button type="submit">Cari</button>
+    </form>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nama</th>
+                <th>Usia</th>
+                <th>Jenis Kelamin</th>
+                <th>Alamat</th>
+                <th>Nomor Telephone</th>
+                <th>Tanggal Registrasi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each patients}}
+            <tr>
+                <td>{{id_pasien}}</td>
+                <td>{{nama_pasien}}</td>
+                <td>{{usia}}</td>
+                <td>{{jenis_kelamin}}</td>
+                <td>{{alamat}}</td>
+                <td>{{no_telp}}</td>
+                <td>{{registration_date}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
+</html>

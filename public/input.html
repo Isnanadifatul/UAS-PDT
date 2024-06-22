@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekam Medis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Rekam Medis</h2>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/register">Masukkan Data Pasien</a></li>
+            <li><a href="/ReadPasien">Lihat Data Pasien</a></li>
+            
+        </ul>
+    </div>
+    <div class="content">
+        <div class="container">
+            <form action="register" method="POST">
+                <div class="form-group">
+                    <label for="nama_pasien">Nama Lengkap</label>
+                    <input type="text" id="nama_pasien" name="nama_pasien" required>
+                </div>
+                <div class="form-group">
+                    <label for="usia">Usia</label>
+                    <input type="number" id="usia" name="usia" required >
+                </div>
+                <div class="form-group">
+                    <label >Jenis Kelamin</label>
+                    <input type="radio" name="jenis_kelamin" value="Pria" required>
+                    <label for="pria">Pria</label>
+                    <input type="radio" name="jenis_kelamin" value="Wanita" required>
+                    <label for="pria">Wanita</label>
+                </div>
+                <div class="form-group">
+                    <label for="alamat">Alamat</label>
+                    <input type="text" id="alamat" name="alamat" required >
+                </div>
+                <div class="form-group">
+                    <label for="no_telp">No. Telp</label>
+                    <input type="tel" id="no_telp" name="no_telp" required >
+                </div>
+                <!-- <div class="form-group">
+                    <label for="riwayat-medis">Riwayat Medis</label>
+                    <textarea id="riwayat-medis" name="riwayat-medis" rows="5" required></textarea>
+                </div> -->
+                <button type="submit" id="btn" class="btn">Submit</button>
+            </form>
+        </div>
+    </div>
+<script src="script(input).js"></script>
+</body>
+
+</html>
